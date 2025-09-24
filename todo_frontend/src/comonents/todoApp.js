@@ -9,7 +9,7 @@ const TodoApp = () => {
         setMessage(''); // Reset message on submit
         console.log(todo);
         try {
-            const response = await fetch('http://localhost:3001/todo_add', {
+            const response = await fetch('http://localhost:3002/api/add_todo', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
