@@ -8,7 +8,7 @@ exports.get_todo = async (req,res) =>{
         res.status(200).json(todos)
     }
     catch(e){
-        console.error(e)
+        //console.error(e)
         res.status(500).json("Something went wrong")
     }
 }
@@ -26,7 +26,7 @@ exports.add_todo = async (req, res) => {
 
         res.status(200).json(todo);
     } catch (error) {
-        console.error("Error adding todo:", error);
+        // console.error("Error adding todo:", error);
         res.status(500).json({ error: "Failed to add new todo" });
     }
 }
