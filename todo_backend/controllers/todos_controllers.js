@@ -1,14 +1,15 @@
 const express = require('express')
 const Todo = require('../models/todoModels')
+const logger = require('../utils/logger')
 
 exports.get_todo = async (req,res) =>{
     try{
         const todos = await Todo.find()
-        console.log("Fetched all the todos",todos)
+        logger.info(`Fetched all the todos ${JSON.stringify(todos)}`)
         res.status(200).json(todos)
     }
     catch(e){
-        //console.error(e)
+        logger.error(e)
         res.status(500).json("Something went wrong")
     }
 }
@@ -16,17 +17,17 @@ exports.get_todo = async (req,res) =>{
 exports.add_todo = async (req, res) => {
     try {
         const { todo } = req.body; 
-        console.log('Added new todo', todo);
+        logger.info(`Adding the todos ${JSON.stringify(todo)}`)
 
         const newTodo = new Todo({ title: todo });
-        console.log("Added new todo to DB", newTodo);
+        logger.info(`Adding the todos ${JSON.stringify(newTodo)}`)
 
         const saveTodo = await newTodo.save();
-        console.log('New todo saved', saveTodo);
+        logger.info(`Saving the todos ${JSON.stringify(saveTodo)}`)
 
         res.status(200).json(todo);
     } catch (error) {
-        // console.error("Error adding todo:", error);
+        logger.error("Error adding todo:", error);
         res.status(500).json({ error: "Failed to add new todo" });
     }
 }
