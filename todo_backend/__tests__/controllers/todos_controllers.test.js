@@ -66,7 +66,7 @@ describe('Todos Controller', () => {
 
             expect(Todo).toHaveBeenCalledWith({ title: newTodoTitle });
             expect(statusMock).toHaveBeenCalledWith(200);
-            expect(jsonMock).toHaveBeenCalledWith(newTodoTitle); // Your controller returns just "todo"
+            expect(jsonMock).toHaveBeenCalledWith(mockSavedTodo); // Your controller returns just "todo"
 
             // If you change the controller to return saved todo:
             // expect(jsonMock).toHaveBeenCalledWith(mockSavedTodo);

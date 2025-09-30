@@ -14,8 +14,4 @@ app.use(express.json())
 app.use('/api',todoRoutes)
 ConnectDB()
 
-const PORT = process.env.PORT
-
-app.listen(PORT || 3001,()=>{
-    console.log(`Server is running on localhost:${PORT}`)
-})
+module.exports = app

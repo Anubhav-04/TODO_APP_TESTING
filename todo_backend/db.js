@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
+const logger = require('./utils/logger')
 dotenv.config();
 
 const ConnectDB = async () => {
@@ -9,9 +9,9 @@ const ConnectDB = async () => {
           useNewUrlParser: true,
           useUnifiedTopology: true
         });
-        console.log('MongoDB connected!!');
+        logger.info('MongoDB connected!!');
     } catch (error) {
-        console.error(`Database connection failed: ${error}`);
+        logger.error(`Database connection failed: ${error}`);
     }
 };
 
