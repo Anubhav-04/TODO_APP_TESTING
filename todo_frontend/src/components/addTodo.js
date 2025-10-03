@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import BackendURL from "../config/config";
 
-const TodoApp = () => {
-    const [todo, setTodo] = useState('This is new state');
+const AddTodo = () => {
+    const [todo, setTodo] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
@@ -9,7 +10,7 @@ const TodoApp = () => {
         setMessage(''); // Reset message on submit
         console.log(todo);
         try {
-            const response = await fetch('http://localhost:3002/api/add_todo', {
+            const response = await fetch(`${BackendURL}/add_todo`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,6 +19,7 @@ const TodoApp = () => {
             });
             if (response.ok) {
                 setMessage('Todo added successfully!');
+                
                 setTodo(''); // Optionally clear input
             } else {
                 setMessage('Failed to add todo!');
@@ -30,16 +32,19 @@ const TodoApp = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="todo-form" onSubmit={handleSubmit}>
             <input
+            className="todo-input" 
                 type="text"
                 value={todo}
                 onChange={(e) => setTodo(e.target.value)}
+                placeholder="Add Todos"
+                required
             />
-            <button type="submit">Add Todo</button>
-            {message && <div>{message}</div>}
+            <button className='todo-button' type="submit">Add Todo</button>
+            {message && <div className='todo-message'>{message}</div>}
         </form>
     );
 };
 
-export default TodoApp;
+export default AddTodo;
