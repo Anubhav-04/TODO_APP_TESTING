@@ -7,6 +7,9 @@
 # testing
 /coverage
 
+/__pycache__/
+.pytest_cache/
+
 # production
 /build
 
