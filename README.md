@@ -21,7 +21,7 @@ python3 Integration_test.py
 ```
 
 # To run the load testing using Jmeter in the root of the project run the below command
-* * set <stringProp name="HTTPSampler.domain">ip address</stringProp> your ip address
+* * set "<stringProp name="HTTPSampler.domain">ip address</stringProp>" your ip address
 
 ```bash
 jmeter -n -t ResultsTree.jmx
