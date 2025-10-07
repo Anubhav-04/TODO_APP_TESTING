@@ -36,13 +36,14 @@ const AddTodo = () => {
             <input
             className="todo-input" 
                 type="text"
+                name="addTodos"
                 value={todo}
                 onChange={(e) => setTodo(e.target.value)}
                 placeholder="Add Todos"
                 required
             />
-            <button className='todo-button' type="submit">Add Todo</button>
-            {message && <div className='todo-message'>{message}</div>}
+            <button className='todo-button' name="Button" type="submit">Add Todo</button>
+            {message && <div className='todo-message' name = "Added">{message}</div>}
         </form>
     );
 };
