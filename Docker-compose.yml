@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./todo_backend
+    container_name: backend
+    restart: always
+    ports: 
+      - "3002:3002"
+    networks:
+      - anubhav
+
+  frontend:
+    build: ./todo_frontend
+    container_name: frontend
+    restart: always
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - anubhav
+
+networks: 
+  anubhav:
