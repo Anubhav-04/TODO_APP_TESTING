@@ -38,3 +38,8 @@ jmeter -n -t ResultsTree.jmx
 
 * * host local
 
+# Docker-compose.yml file added
+```bash
+    docker compose up -d # To start the container using docker-compose.yml file
+    docker compse down # To stop docker compose
+```

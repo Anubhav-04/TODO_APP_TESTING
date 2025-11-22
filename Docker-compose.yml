@@ -21,3 +21,4 @@ services:
 
 networks: 
   anubhav:
+    driver: bridge
